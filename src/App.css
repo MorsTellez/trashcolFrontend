@@ -1,0 +1,12 @@
+button {
+background-color: var(--verde-principal);
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+}
+
+button:hover {
+background-color: var(--verde-claro);
+}

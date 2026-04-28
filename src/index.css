@@ -1,0 +1,94 @@
+:root {
+
+    --verde-principal: #2E7D32;
+    --verde-claro: #4CAF50;
+    --verde-suave: #A5D6A7;
+    --spring-wood: #F5F5F0;
+    --gris-texto: #6B7280;
+    --blanco: #FFFFFF;
+    --verde-oscuro: #1B5E20;
+
+}
+
+body {
+    background-color: var(--spring-wood);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor centrado */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Tarjeta formulario */
+
+.form-card {
+    background-color: var(--blanco);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+/* Inputs */
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+
+    border: 1px solid #ccc;
+}
+
+/* Botones */
+
+button {
+    width: 100%;
+    background-color: var(--verde-principal);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--verde-claro);
+}
+
+/* Titulo */
+
+h2 {
+    text-align: center;
+    color: var(--verde-oscuro);
+}
+
+/*ESTILOS PARA EL MAPA Dashboard del usuario */
+.dashboard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-card {
+    width: 80%;
+    max-width: 900px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/*Final del diseño para el mapa*/
+
+.trashcol-navbar {
+    background-color: #1B5E20;
+}
+
