@@ -1,59 +1,44 @@
-const API_URL = "http://localhost:3000/usuarios";
-
-export const login = async (correo, password) => {
-
-    try {
-
-        const response = await fetch(`${API_URL}/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                correo,
-                password
-            })
-        });
-
-        const data = await response.json();
-
-        return data;
-
-    } catch (error) {
-        console.error("Error login:", error);
-        throw error;
-    }
-
-};
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 // ========================
-// Registro usuario
+// Login
+// ========================
+
+export const login = async (correo, password) => {
+    const response = await fetch(`${API_URL}/usuarios/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo, password })
+    });
+    return response.json();
+};
+
+// ========================
+// Registro
 // ========================
 
 export const register = async (nombre, correo, password) => {
+    const response = await fetch(`${API_URL}/usuarios/registro`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, correo, password })
+    });
+    return response.json();
+};
 
-    try {
+// ========================
+// Helpers de sesión
+// ========================
 
-        const response = await fetch(`${API_URL}/registro`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                nombre,
-                correo,
-                password
-            })
-        });
+export const getToken = () => localStorage.getItem('token');
 
-        const data = await response.json();
+export const getUsuario = () => {
+    const nombre = localStorage.getItem('nombre');
+    const tipo = localStorage.getItem('tipoUsuario');
+    return { nombre, tipo };
+};
 
-        return data;
-
-    } catch (error) {
-        console.error("Error registro:", error);
-        throw error;
-    }
-
+export const cerrarSesion = () => {
+    localStorage.clear();
+    window.location.href = '/';
 };

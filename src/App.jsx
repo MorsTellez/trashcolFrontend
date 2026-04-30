@@ -1,24 +1,33 @@
-import './App.css'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import Register from './pages/register';
+import Register from './pages/Register';
 import CrearReportes from './pages/CrearReportes';
-
+import MisReportes from './pages/MisReportes';
+import RutaProtegida from './components/RutaProtegida';
 
 function App() {
-  return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Login />} />
-      <Route path='/registro' element={<Register />} />
-      <Route path='/dashboard' element={<Dashboard />} />
-      <Route path='/crear-reportes' element={<CrearReportes />} />
-      
+    return (
+        <BrowserRouter>
+            <Routes>
+                {/* Rutas públicas */}
+                <Route path="/" element={<Login />} />
+                <Route path="/registro" element={<Register />} />
 
-    </Routes>
-    </BrowserRouter>
-  )
+                {/* Rutas protegidas — requieren token */}
+                <Route path="/dashboard" element={
+                    <RutaProtegida><Dashboard /></RutaProtegida>
+                } />
+                <Route path="/crear-reportes" element={
+                    <RutaProtegida><CrearReportes /></RutaProtegida>
+                } />
+                <Route path="/mis-reportes" element={
+                    <RutaProtegida><MisReportes /></RutaProtegida>
+                } />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
-export default App
+export default App;

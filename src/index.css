@@ -92,3 +92,27 @@ h2 {
     background-color: #1B5E20;
 }
 
+
+/* Alerta de error en formularios */
+.alert-error {
+    background-color: #fdecea;
+    color: #c0392b;
+    border: 1px solid #f5c6cb;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+/* Tarjeta individual de reporte */
+.reporte-card {
+    background-color: var(--spring-wood);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.reporte-card:last-child {
+    margin-bottom: 0;
+}
