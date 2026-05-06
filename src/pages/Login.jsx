@@ -20,8 +20,15 @@ function Login() {
             if (data.token) {
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('nombre', data.usuario.nombre);
+                localStorage.setItem('idUsuario', data.usuario.idusuario);
                 localStorage.setItem('tipoUsuario', data.usuario.tipousuario || 'ciudadano');
-                navigate('/dashboard');
+
+                // Redirigir según rol
+                if (data.usuario.tipousuario === 'administrador') {
+                    navigate('/admin');
+                } else {
+                    navigate('/dashboard');
+                }
             } else {
                 setError(data.mensaje || 'Credenciales incorrectas.');
             }
