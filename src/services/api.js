@@ -59,3 +59,58 @@ export const obtenerCamiones = () =>
 
 export const obtenerUbicacionCamion = (idCamion) =>
     fetchConToken(`/camiones/ubicacion/${idCamion}`);
+
+// ========================
+// Admin — Estadísticas
+// ========================
+
+export const obtenerEstadisticas = () =>
+    fetchConToken('/admin/estadisticas');
+
+// ========================
+// Admin — Reportes
+// ========================
+
+export const obtenerReportesAdmin = (estado = '') =>
+    fetchConToken(`/admin/reportes${estado ? `?estado=${estado}` : ''}`);
+
+export const actualizarEstadoReporte = (id, estado) =>
+    fetchConToken(`/admin/reportes/${id}/estado`, {
+        method: 'PATCH',
+        body: JSON.stringify({ estado })
+    });
+
+// ========================
+// Admin — Camiones
+// ========================
+
+export const obtenerCamionesAdmin = () =>
+    fetchConToken('/admin/camiones');
+
+export const crearCamion = (placa, chofer) =>
+    fetchConToken('/admin/camiones', {
+        method: 'POST',
+        body: JSON.stringify({ placa, chofer })
+    });
+
+export const editarCamion = (id, datos) =>
+    fetchConToken(`/admin/camiones/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify(datos)
+    });
+
+export const eliminarCamion = (id) =>
+    fetchConToken(`/admin/camiones/${id}`, { method: 'DELETE' });
+
+// ========================
+// Admin — Usuarios
+// ========================
+
+export const obtenerUsuariosAdmin = () =>
+    fetchConToken('/admin/usuarios');
+
+export const cambiarTipoUsuario = (id, tipousuario) =>
+    fetchConToken(`/admin/usuarios/${id}/tipo`, {
+        method: 'PATCH',
+        body: JSON.stringify({ tipousuario })
+    });
